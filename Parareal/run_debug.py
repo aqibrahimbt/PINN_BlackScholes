@@ -33,7 +33,7 @@ def main(command, processor_numbers, n_repeats=5):
 
 
 if __name__ == "__main__":
-    command = "python3"
+    command = "python3 {}"
     processor_numbers = [2, 4, 6, 8, 10, 12, 14, 16]
     df = main(command, processor_numbers)
     plt.plot(df["Number of Processors"], df["Average Runtime"], marker="o")
