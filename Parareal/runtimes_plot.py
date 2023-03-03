@@ -61,7 +61,7 @@ print("........................Speed Up................................")
 def speed_up(n_iteration, cost_coarse, cost_fine):
     data = []
     for size in np.arange(2, 18, 2):
-        speed_up = 1 / ((1 + n_iteration / size) * (cost_coarse / cost_fine) + (n_iteration / size)) * 2
+        speed_up = 1 / ((1 + n_iteration / size) * (cost_coarse / cost_fine) + (n_iteration / size))
         efficiency = speed_up / size
         data.append([size, speed_up, efficiency])
         df = pd.DataFrame(data, columns=['Size', 'Speed-Up', 'Efficiency'])
