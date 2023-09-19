@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 
 
 def run_mpi_command(nprocs, command):
-    cmd = "mpirun -np {} {}".format(nprocs, command)
+    cmd = f"mpirun -np {nprocs} {command}"
     result = subprocess.run(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     return result.stdout.decode()
 
@@ -20,16 +20,21 @@ def main(command, processor_numbers, n_repeats=5):
     runtimes = []
     for nprocs in processor_numbers:
         run_times = []
-        for i in range(n_repeats):
+        for _ in range(n_repeats):
             output = run_mpi_command(nprocs, command)
             runtime = parse_output(output)
             run_times.append(runtime)
         avg_runtime = np.mean(run_times)
         sd_runtime = np.sd(runtimes)
         runtimes.append((nprocs, avg_runtime, sd_runtime))
-    df = pd.DataFrame(runtimes, columns=["Number of Processors", "Average Runtime",
-                                         'Standard Deviation'])
-    return df
+    return pd.DataFrame(
+        runtimes,
+        columns=[
+            "Number of Processors",
+            "Average Runtime",
+            'Standard Deviation',
+        ],
+    )
 
 
 if __name__ == "__main__":

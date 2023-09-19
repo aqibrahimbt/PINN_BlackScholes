@@ -21,8 +21,7 @@ def run_parareal():
     # specify the file to run here
     exec(open('black_scholes_num.py').read())
 
-    elapsed_time = time.time() - start_time
-    return elapsed_time
+    return time.time() - start_time
 
 # Initialize an array to hold the elapsed times for each run
 elapsed_times = np.zeros((len(n_procs_range), n_runs))
