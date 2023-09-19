@@ -72,13 +72,10 @@ def main():
     q_c = coarse(q, time_segment[0] + segment_size, time_segment[1] + segment_size)
     # print("rank =", rank, " ", time_segment[0] + segment_size, time_segment[1] + segment_size)
 
-    for i in range(K):
+    for _ in range(K):
         q = fine(q, time_segment[0] * segment_size, time_segment[1] * segment_size)
         d_c = q - q_c
-        if rank != 0:
-            q = comm.recv(source=rank - 1)
-        else:
-            q = q_o
+        q = comm.recv(source=rank - 1) if rank != 0 else q_o
         q_c = coarse(q, time_segment[0] + segment_size, time_segment[1] + segment_size)
         q = q_c - d_c
         if rank != size - 1:
@@ -86,9 +83,9 @@ def main():
 
         end_time = MPI.Wtime()
     if rank == 0:
-        print("Initialize a time: " + str(end_time-start_time))
+        print(f"Initialize a time: {str(end_time - start_time)}")
         with open("run_times_default.txt", "a") as myfile:
-            myfile.write(str("\n"))
+            myfile.write("\n")
             myfile.write(str(end_time-start_time))
 
 

@@ -91,10 +91,12 @@ error_over_time_fine = [x / i*5 for i, x in enumerate(error_over_time_fine)]
 fs = 8
 rcParams['figure.figsize'] = 2.5, 2.5
 fig = plt.figure()
-plt.semilogy(t, error_over_time_num[0:M], 'r-o',  label='Fine', markersize=fs/5)
-plt.semilogy(t, error_over_time_nn[0:M], 'g-o', label='PINN', markersize=fs/5)
-plt.semilogy(t, error_over_time_pinn[0:M], 'b-o', label='NN', markersize=fs/5)
-plt.semilogy(t, error_over_time_fine[0:M], 'k-o', label='Numeric', markersize=fs/5)
+plt.semilogy(t, error_over_time_num[:M], 'r-o', label='Fine', markersize=fs/5)
+plt.semilogy(t, error_over_time_nn[:M], 'g-o', label='PINN', markersize=fs/5)
+plt.semilogy(t, error_over_time_pinn[:M], 'b-o', label='NN', markersize=fs/5)
+plt.semilogy(
+    t, error_over_time_fine[:M], 'k-o', label='Numeric', markersize=fs / 5
+)
 plt.xlabel('time', fontsize=fs, labelpad=0.5)
 plt.ylabel('Normalized error', fontsize=fs, labelpad=0.5)
 plt.legend(loc='center right', fontsize=fs, prop={'size': fs-2})
