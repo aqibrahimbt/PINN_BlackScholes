@@ -10,7 +10,7 @@ Education and Research](https://www.bmbf.de/bmbf/en/home/home_node.html)
 (BMBF) grants  16HPC047 and 16ME0679K. Supported by the European Union - NextGenerationEU. 
 
 <p align="center">
-  <img src="img/EuroHPC.jpg" height="105"/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="img/LogoTime-X.png" height="105" /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="img/BMBF_gefoerdert_2017_en.jpg" height="105" />
+  <img src="EuroHPC.jpg" height="105"/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="LogoTime-X.png" height="105" /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="BMBF_gefoerdert_2017_en.jpg" height="105" />
 </p>
